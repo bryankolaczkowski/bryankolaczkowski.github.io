@@ -2,25 +2,197 @@
 <html>
   <head>
     <title>AI Research Fellowship</title>
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
     <script type="text/javascript">
-      var applicants=0;
+      var applicants=1;
       function addApplicant(){
-        i++;
-        var container = document.getElementByID("studentinfo");
-        container.appendChild(document.createElement("hr"));
+        applicants++;
+        // check applicants too big!
+        if (applicants > 5){
+          lnk = document.getElementById("addapplicant");
+          lnk.href = "#addapplicant";
+          return;
+        }
+        var container = document.getElementById("studentinfo");
+        // set beginning place
+        var beg = document.createElement("hr");
+        beg.id  = "applicant"+applicants;
+        container.appendChild(beg);
+        // add applicant header
+        var h = document.createElement("H2");
+        var t = document.createTextNode("applicant # "+applicants+" information");
+        h.appendChild(t);
+        container.appendChild(h);
         // name input
         var name = document.createElement("input");
         name.type = "text";
-        name.name = "name"+i;
-        //name.placeholder = "full name";
+        name.name = "name"+applicants;
+        name.id   = "name"+applicants;
+        name.placeholder = "full name";
         container.appendChild(name);
         // email input
         var email = document.createElement("input");
         email.type = "email";
-        email.name = "email"+i;
-        //email.placeholder = "email";
+        email.name = "email"+applicants;
+        email.id   = "email"+applicants;
+        email.placeholder = "email";
         container.appendChild(email);
+        // student id input
+        var sid = document.createElement("input");
+        sid.type = "text";
+        sid.name = "studentid"+applicants;
+        sid.id   = "studentid"+applicants;
+        sid.placeholder = "student id";
+        container.appendChild(sid)
+        // class level
+        var classlvl = document.createElement("select");
+        classlvl.name = "studentlevel"+applicants;
+        classlvl.id   = "studentlevel"+applicants;
+        classlvl.required = "required";
+        var opt = document.createElement("option");
+        opt.value = "";
+        opt.innerHTML = "current class level*";
+        classlvl.appendChild(opt);
+        opt = document.createElement("option");
+        opt.value = "freshman";
+        opt.innerHTML = "freshman";
+        classlvl.appendChild(opt);
+        opt = document.createElement("option");
+        opt.value = "sophomore";
+        opt.innerHTML = "sophomore";
+        classlvl.appendChild(opt);
+        opt = document.createElement("option");
+        opt.value = "junior";
+        opt.innerHTML = "junior";
+        classlvl.appendChild(opt);
+        opt = document.createElement("option");
+        opt.value = "senior";
+        opt.innerHTML = "senior";
+        classlvl.appendChild(opt);
+        container.appendChild(classlvl);
+        // university
+        var univ = document.createElement("select");
+        univ.name = "university"+applicants;
+        univ.id   = "university"+applicants;
+        univ.required = "required";
+        opt = document.createElement("option");
+        opt.value = "";
+        opt.innerHTML = "university*";
+        univ.appendChild(opt);
+        opt = document.createElement("option");
+        opt.value = "FAMU";
+        opt.innerHTML = "FAMU";
+        univ.appendChild(opt);
+        opt = document.createElement("option");
+        opt.value = "UF";
+        opt.innerHTML = "UF";
+        univ.appendChild(opt);
+        container.appendChild(univ);
+        // under-represented
+        var ndr = document.createElement("div");
+        ndr.className = "question";
+        var cbi = document.createElement("div");
+        cbi.className = "question-answer checkbox-item";
+        var cbx = document.createElement("input");
+        cbx.type = "checkbox";
+        cbx.name = "underrepresented"+applicants;
+        cbx.id   = "underrepresented"+applicants;
+        cbx.value = "none";
+        var cbxlbl = document.createElement("label");
+        cbxlbl.htmlFor = "underrepresented"+applicants;
+        cbxlbl.className = "check";
+        var spn = document.createElement("span")
+        spn.innerHTML = "I self-identify as a member of an historically under-represented group in science, technology, engineering and/or mathematics.";
+        cbxlbl.appendChild(spn);
+        cbi.appendChild(cbx);
+        cbi.appendChild(cbxlbl);
+        ndr.appendChild(cbi);
+        container.appendChild(ndr);
+        // gender
+        var gender = document.createElement("select");
+        gender.name = "gender"+applicants;
+        gender.id   = "gender"+applicants;
+        gender.required = "required";
+        opt = document.createElement("option");
+        opt.value = "";
+        opt.innerHTML = "gender*";
+        gender.appendChild(opt);
+        opt = document.createElement("option");
+        opt.value = "non-binary";
+        opt.innerHTML = "non-binary";
+        gender.appendChild(opt);
+        opt = document.createElement("option");
+        opt.value = "female";
+        opt.innerHTML = "female";
+        gender.appendChild(opt);
+        opt = document.createElement("option");
+        opt.value = "male";
+        opt.innerHTML = "male";
+        gender.appendChild(opt);
+        opt = document.createElement("option");
+        opt.value = "noanswer";
+        opt.innerHTML = "I prefer not to answer";
+        gender.appendChild(opt);
+        container.appendChild(gender);
+        // race
+        var race = document.createElement("select");
+        race.name = "race"+applicants;
+        race.id   = "race"+applicants;
+        race.required = "required";
+        opt = document.createElement("option");
+        opt.value = "";
+        opt.innerHTML = "race*";
+        race.appendChild(opt);
+        opt = document.createElement("option");
+        opt.value = "multi-racial";
+        opt.innerHTML = "multi-racial";
+        race.appendChild(opt);
+        opt = document.createElement("option");
+        opt.value = "native";
+        opt.innerHTML = "American Indian or Alaska Native";
+        race.appendChild(opt);
+        opt = document.createElement("option");
+        opt.value = "asian";
+        opt.innerHTML = "Asian";
+        race.appendChild(opt);
+        opt = document.createElement("option");
+        opt.value = "black";
+        opt.innerHTML = "Black or African American";
+        race.appendChild(opt);
+        opt = document.createElement("option");
+        opt.value = "pacific";
+        opt.innerHTML = "Native Hawaiian or other Pacific Islander";
+        race.appendChild(opt);
+        opt = document.createElement("option");
+        opt.value = "white";
+        opt.innerHTML = "White";
+        race.appendChild(opt);
+        opt = document.createElement("option");
+        opt.value = "noanswer";
+        opt.innerHTML = "I prefer not to answer";
+        race.appendChild(opt);
+        container.appendChild(race);
+        // ethnicity
+        var ethnic = document.createElement("select");
+        ethnic.name = "ethnicity"+applicants;
+        ethnic.id   = "ethnicity"+applicants;
+        ethnic.required = "required";
+        opt = document.createElement("option");
+        opt.value = "";
+        opt.innerHTML = "ethnicity*";
+        ethnic.appendChild(opt);
+        opt = document.createElement("option");
+        opt.value = "hispanic";
+        opt.innerHTML = "Hispanic or Latino or Spanish Origin";
+        ethnic.appendChild(opt);
+        opt = document.createElement("option");
+        opt.value = "nonhispanic";
+        opt.innerHTML = "Not Hispanic or Latino or Spanish Origin";
+        ethnic.appendChild(opt);
+        container.appendChild(ethnic);
+        // link to beginning place
+        lnk = document.getElementById("addapplicant");
+        lnk.href = "#" + beg.id;
       }
     </script>
   </head>
@@ -46,7 +218,7 @@
               <option value="junior">junior</option>
               <option value="senior">senior</option>
             </select>
-            <select name="universtiy" id="university" required>
+            <select name="university" id="university" required>
               <option value="">university*</option>
               <option value="FAMU">FAMU</option>
               <option value="UF">UF</option>
@@ -89,9 +261,14 @@
           </section>
         </div>
         <!-- end student information -->
-        <a id="newapplicant" href="#newapplicant" id="addapplicant" onclick="addApplicant()">
-          add another co-applicant
-        </a>
+
+        <p id="addapplicanttext">
+          <a href="#addapplicant" id="addapplicant" onclick="addApplicant()">
+            add another co-applicant
+          </a>
+          &nbsp;*Research teams can have up to 5 members. Each member will
+          receive an individual award.
+        </p>
 
         <section>
           <hr>
