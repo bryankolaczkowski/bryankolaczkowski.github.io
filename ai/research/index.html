@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AI Research Fellowship</title>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <script type="text/javascript">
+      var applicants=0;
+      function addApplicant(){
+        i++;
+        var container = document.getElementByID("studentinfo");
+        container.appendChild(document.createElement("hr"));
+        // name input
+        var name = document.createElement("input");
+        name.type = "text";
+        name.name = "name"+i;
+        //name.placeholder = "full name";
+        container.appendChild(name);
+        // email input
+        var email = document.createElement("input");
+        email.type = "email";
+        email.name = "email"+i;
+        //email.placeholder = "email";
+        container.appendChild(email);
+      }
+    </script>
+  </head>
+  <body>
+    <div class="testbox">
+      <form name="diversityform" id="diversityform" action="./sendform.php" method="post">
+        <div class="banner">
+          <h1>AI Research Fellowship Application</h1>
+        </div>
+        <p>Awards are for 1 year and renewable up to 3 years.</p>
+        <!-- beg student information -->
+        <div id="studentinfo">
+          <section>
+            <hr>
+            <h3>applicant information</h3>
+            <input type="text" name="name" id="name" placeholder="full name" required>
+            <input type="email" name="email" id="email" placeholder="email" required>
+            <input type="text" name="studentid" id="studentid" placeholder="student id" required>
+            <select name="studentlevel" id="studentlevel" required>
+              <option value="">current class level*</option>
+              <option value="freshman">freshman</option>
+              <option value="sophomore">sophomore</option>
+              <option value="junior">junior</option>
+              <option value="senior">senior</option>
+            </select>
+            <select name="universtiy" id="university" required>
+              <option value="">university*</option>
+              <option value="FAMU">FAMU</option>
+              <option value="UF">UF</option>
+            </select>
+            <div class="question">
+              <div class="question-answer checkbox-item">
+                <input type="checkbox" name="underrepresented" id="underrepresented" value="none"/>
+                <label for="underrepresented" class="check">
+                  <span>
+                    I self-identify as a member of an historically
+                    under-represented group in science, technology,
+                    engineering and/or mathematics.
+                  </span>
+                </label>
+              </div>
+            </div>
+            <select name="gender" id="gender" required>
+              <option value="">gender*</option>
+              <option value="non-binary">non-binary</option>
+              <option value="female">female</option>
+              <option value="male">male</option>
+              <option value="noanswer">I prefer not to answer</option>
+            </select>
+            <select name="race" id="race" required>
+              <option value="">race*</option>
+              <option value="multi-racial">multi-racial</option>
+              <option value="native">American Indian or Alaska Native</option>
+              <option value="asian">Asian</option>
+              <option value="black">Black or African American</option>
+              <option value="pacific">Native Hawaiian or other Pacific Islander</option>
+              <option value="white">White</option>
+              <option value="noanswer">I prefer not to answer</option>
+            </select>
+            <select name="ethnicity" id="ethnicity" required>
+              <option value="">ethnicity*</option>
+              <option value="hispanic">Hispanic or Latino or Spanish Origin</option>
+              <option value="nonhispanic">Not Hispanic or Latino or Spanish Origin</option>
+              <option value="noanswer">I prefer not to answer</option>
+            </select>
+          </section>
+        </div>
+        <!-- end student information -->
+        <a id="newapplicant" href="#newapplicant" id="addapplicant" onclick="addApplicant()">
+          add another co-applicant
+        </a>
+
+        <section>
+          <hr>
+          <h3>faculty advisor reference information</h3>
+          <p><input type="text" name="referencename" id="referencename" placeholder="full name of faculty advisor" required></p>
+          <p><input type="email" name="referenceemail" id="referenceemail" placeholder="email of faculty advisor" required></p>
+        </section>
+
+        <section>
+          <hr>
+          <h3>project description</h3>
+          <div class="item">
+            <p>What is the main objective of the proposed project?</p>
+            <textarea name="researchobjective" id="researchobjective" rows=3 required></textarea>
+          </div>
+          <div class="item">
+            <p>How does the proposed project use AI?</p>
+            <textarea name="researchai" id="researchai" rows=3 required></textarea>
+          </div>
+        </section>
+
+        <div class="btn-block">
+          <button type="submit">submit application</button>
+        </div>
+      </form>
+
+    </div>
+  </body>
+</html>
