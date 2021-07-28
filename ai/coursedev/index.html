@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AI Course Development</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+  </head>
+  <body>
+    <div class="testbox">
+      <form name="coursedevform" id="coursedevform" action="./sendform.php" method="post">
+        <div class="banner">
+          <h1>AI Course Development Award Application</h1>
+        </div>
+        <section>
+          <hr>
+          <h3>instructor information</h3>
+          <input type="text" name="name" id="name" placeholder="full name" required>
+          <input type="email" name="email" id="email" placeholder="email" required>
+          <input type="text" name="instructorid" id="instructorid" placeholder="instructor id" required>
+          <input type="text" name="department" id="department" placeholder="department" required>
+          <select name="universtiy" id="university" required>
+            <option value="">university*</option>
+            <option value="FAMU">FAMU</option>
+            <option value="UF">UF</option>
+          </select>
+          <div class="question">
+            <div class="question-answer checkbox-item">
+              <input type="checkbox" name="underrepresented" id="underrepresented" value="none"/>
+              <label for="underrepresented" class="check">
+                <span>
+                  I self-identify as a member of an historically
+                  under-represented group.
+                </span>
+              </label>
+            </div>
+          </div>
+          <select name="gender" id="gender" required>
+            <option value="">gender*</option>
+            <option value="non-binary">non-binary</option>
+            <option value="female">female</option>
+            <option value="male">male</option>
+            <option value="noanswer">I prefer not to answer</option>
+          </select>
+          <select name="race" id="race" required>
+            <option value="">race*</option>
+            <option value="multi-racial">multi-racial</option>
+            <option value="native">American Indian or Alaska Native</option>
+            <option value="asian">Asian</option>
+            <option value="black">Black or African American</option>
+            <option value="pacific">Native Hawaiian or other Pacific Islander</option>
+            <option value="white">White</option>
+            <option value="noanswer">I prefer not to answer</option>
+          </select>
+          <select name="ethnicity" id="ethnicity" required>
+            <option value="">ethnicity*</option>
+            <option value="hispanic">Hispanic or Latino or Spanish Origin</option>
+            <option value="nonhispanic">Not Hispanic or Latino or Spanish Origin</option>
+            <option value="noanswer">I prefer not to answer</option>
+          </select>
+        </section>
+
+        <section>
+          <hr>
+          <h3>course information</h3>
+          <input type="text" name="coursetitle" id="coursetitle" placeholder="course title" required>
+          <select name="coursetype" id="coursetype" required>
+            <option value="">this is a...*</option>
+            <option value="newcourse">new course</option>
+            <option value="oldcourse">modification of an existing course</option>
+          </select>
+          <select name="coursedelivery" id="coursedelivery" required>
+            <option value="">this course will be delivered...*</option>
+            <option value="online">online</option>
+            <option value="inperson">in person</option>
+          </select>
+          <div class="item">
+            <p>course description:</p>
+            <textarea name="coursedescription" id="coursedescription" rows=3 required></textarea>
+          </div>
+          <div class="item">
+            <p>How will AI be incorporated into the course?</p>
+            <textarea name="aiuse" id="aiuse" rows=3 required></textarea>
+          </div>
+          <div class="item">
+            <p>
+              What specific AI concepts, methods, techniques or tools
+              will you use or disuss in the course?
+            </p>
+            <textarea name="aitools" id="aitools" rows=3 required></textarea>
+          </div>
+          <div class="item">
+            <p>Why is this course important for the AI curriculum?</p>
+            <textarea name="importance" id="importance" rows=3 required></textarea>
+          </div>
+        </section>
+
+        <section>
+          <hr>
+          <h3>budget</h3>
+          <div class="item">
+            <p>If awarded, how do you plan to spend the money?</p>
+            <textarea name="budget" id="budget" rows=3 required></textarea>
+          </div>
+        </section>
+
+        <section>
+          <hr>
+          <h3>diversity statement</h3>
+          <div class="item">
+            <p>
+              How will this course contribute to the diversity of
+              students pursuing AI-related coursework?
+            </p>
+            <textarea name="diversity" id="diversity" rows=3 required></textarea>
+          </div>
+        </section>
+
+        <div class="btn-block">
+          <button type="submit" href="/">submit application</button>
+        </div>
+      </form>
+
+    </div>
+  </body>
+</html>
