@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>AI Research Fellowship</title>
-    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
     <script type="text/javascript">
       var applicants=1;
       function addApplicant(){
@@ -43,7 +43,14 @@
         sid.name = "studentid"+applicants;
         sid.id   = "studentid"+applicants;
         sid.placeholder = "student id";
-        container.appendChild(sid)
+        container.appendChild(sid);
+        // major input
+        var maj = document.createElement("input");
+        maj.type = "text";
+        maj.name = "major"+applicants;
+        maj.id   = "major"+applicants;
+        maj.placeholder = "What is your major?";
+        container.appendChild(maj);
         // class level
         var classlvl = document.createElement("select");
         classlvl.name = "studentlevel"+applicants;
@@ -102,7 +109,7 @@
         cbxlbl.htmlFor = "underrepresented"+applicants;
         cbxlbl.className = "check";
         var spn = document.createElement("span")
-        spn.innerHTML = "I self-identify as a member of an historically under-represented group in science, technology, engineering and/or mathematics.";
+        spn.innerHTML = "I self-identify as a member of an historically under-represented group.";
         cbxlbl.appendChild(spn);
         cbi.appendChild(cbx);
         cbi.appendChild(cbxlbl);
@@ -198,7 +205,7 @@
   </head>
   <body>
     <div class="testbox">
-      <form name="diversityform" id="diversityform" action="./sendform.php" method="post">
+      <form name="researchform" id="researchform" action="./sendform.php" method="post">
         <div class="banner">
           <h1>AI Research Fellowship Application</h1>
         </div>
@@ -211,6 +218,7 @@
             <input type="text" name="name" id="name" placeholder="full name" required>
             <input type="email" name="email" id="email" placeholder="email" required>
             <input type="text" name="studentid" id="studentid" placeholder="student id" required>
+            <input type="text" name="major" id="major" placeholder="What is your major?" required>
             <select name="studentlevel" id="studentlevel" required>
               <option value="">current class level*</option>
               <option value="freshman">freshman</option>
@@ -229,8 +237,7 @@
                 <label for="underrepresented" class="check">
                   <span>
                     I self-identify as a member of an historically
-                    under-represented group in science, technology,
-                    engineering and/or mathematics.
+                    under-represented group.
                   </span>
                 </label>
               </div>
