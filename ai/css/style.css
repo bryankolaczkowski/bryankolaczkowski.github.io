@@ -216,3 +216,7 @@ button:hover {
 .city-item select {
   width: calc(50% - 8px);
 }
+
+.indented {
+  margin-left: 20px;
+}
